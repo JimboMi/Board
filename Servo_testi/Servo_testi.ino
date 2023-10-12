@@ -1,28 +1,29 @@
 #include <Servo.h>
 
-int pos = 0;
+int pos = 90;
 
-Servo servo_9;
+Servo servo1;
+Servo servo2;
+Servo servo3;
 
 void setup()
 {
-  servo_9.attach(9, 500, 2500);
+  servo1.attach(9);
+  servo2.attach(10);
+  servo3.attach(11);
 }
 
 void loop()
 {
-  // sweep the servo from 0 to 180 degrees in steps
-  // of 1 degrees
-  for (pos = 0; pos <= 180; pos += 1) {
-    // tell servo to go to position in variable 'pos'
-    servo_9.write(pos);
-    // wait 15 ms for servo to reach the position
-    delay(15); // Wait for 15 millisecond(s)
+  servo1.write(90);
+  delay(150);
+
+  servo2.write(130);
+  delay(1500);
+  
+  servo2.write(0);
+  delay(1500);
+
+  servo3.write(90);
+  delay(15);
   }
-  for (pos = 180; pos >= 0; pos -= 1) {
-    // tell servo to go to position in variable 'pos'
-    servo_9.write(pos);
-    // wait 15 ms for servo to reach the position
-    delay(15); // Wait for 15 millisecond(s)
-  }
-}
