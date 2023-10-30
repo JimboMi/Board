@@ -6,9 +6,9 @@ Servo servo3;
 
   //here we create servo objects to control a servo
 
-int pos = 0; //initial position of servos
+int pos = 90; //initial position of servos
 
-int val; //initial value of input
+char val; //initial value of input
 
 void setup(){
   Serial.begin(9600); //serial comm begin at 9600bps
@@ -23,7 +23,7 @@ void loop(){
   if(Serial.available()){ //if serial value is available
     val = Serial.read(); //then read the serial value
     if(val == 'd'){ //if value input is d
-        pos += 1; //servo position increases by 1 (CCW)
+        pos += 20; //servo position increases by 20 (CCW)
         servo1.write(pos); //servo moves according to position
         delay(15); //delay for the servo to get into the position
 
@@ -34,7 +34,7 @@ void loop(){
         delay(15);
     }
     if(val == 'a'){
-        pos -= 1; //servo position increases by 1 (CCW)
+        pos -= 20; //servo position decreases by 20 (CCW)
         servo1.write(pos); //servo moves according to position
         delay(15); //delay for the servo to get into the position
 
